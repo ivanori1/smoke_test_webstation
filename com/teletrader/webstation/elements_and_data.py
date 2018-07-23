@@ -44,3 +44,18 @@ class Elements:
 
     # Detail page headers
     market_header = By.CSS_SELECTOR, ".main-pages-header.markets"
+    currencies_header = By.CSS_SELECTOR, ".main-pages-header.currencies"
+    fixedIncome_header = By.CSS_SELECTOR, ".main-pages-header.fixedIncome"
+    commodities_header = By.CSS_SELECTOR, ".main-pages-header.commodities"
+    futures_header = By.CSS_SELECTOR, ".main-pages-header.futures"
+    news_header = By.CSS_SELECTOR, "breaking-the-news-title"
+    calendar_header = By.CSS_SELECTOR, ".main-pages-header.companyCalendar"
+    analyzer_header = By.CSS_SELECTOR, ".main-pages-header.analyzerHeader"
+    portfolio_header = By.CSS_SELECTOR, ".main-pages-header.portfolio"
+    alert_header = By.CSS_SELECTOR, ".main-pages-header.alerts"
+    trump_effect_header = By.CSS_SELECTOR, ".main-pages-header.trumpEfect"
+    economic_data_header = By.CSS_SELECTOR, ".main-pages-header.economicCalendar"
+    back_tester_header = By.CSS_SELECTOR, ".backtester-header.back-tester"
+    screener_header = By.CSS_SELECTOR, ".main-pages-header.screenerHeader"
+    etf_header = By.CSS_SELECTOR, ".main-pages-header.etf"
+    real_time_header = By.CSS_SELECTOR, ".main-pages-header.realtimeIn"
