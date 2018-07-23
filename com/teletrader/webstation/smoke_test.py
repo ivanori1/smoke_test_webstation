@@ -7,28 +7,6 @@ from com.teletrader.webstation.elements_and_data import Elements, Data
 
 class SmokeTest(unittest.TestCase):
 
-    # Methods
-    def change_region_germany(self):
-        boolean_funds_visible = self.driver.find_element(*self.funds_button).is_selected()
-        region_box = self.driver.find_element(*self.region_box)
-        select_region = Select(region_box)
-        if not boolean_funds_visible:
-            self.driver.find_element(*self.user_button).click()
-            self.driver.find_element(*self.account_settings).click()
-            select_region.select_by_value("DE")
-
-    def is_eula_selected(self):
-        boolean_eula = self.driver.find_element(*self.eula_xpath).is_selected()
-        if not boolean_eula:
-            self.driver.find_element(*self.eula_css).click()
-
-    def login_method(self):
-        self.driver.find_element(*self.username).clear()
-        self.driver.find_element(*self.username).send_keys(self.str_username)
-        self.driver.find_element(*self.password).send_keys(self.str_password)
-        self.is_eula_selected()
-        self.driver.find_element(*self.login).click()
-
     # TEST
     def test(self):
         # Instance of Chrome browser
