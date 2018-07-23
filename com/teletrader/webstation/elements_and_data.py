@@ -22,3 +22,4 @@ class Elements:
     account_settings = By.CSS_SELECTOR, "[href='personal_registration.aspx']"
     region_box = By.ID, 'regionBox'
     logout = By.CSS_SELECTOR, "[href='Logout.aspx']"
+
