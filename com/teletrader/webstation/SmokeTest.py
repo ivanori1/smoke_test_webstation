@@ -13,18 +13,7 @@ class SmokeTest(unittest.TestCase):
     str_username = 'ivan.coric91'
     str_password = 'ictrader123'
     error_accept_eula = 'You have to accept the End User License Agreement in order to log in.'
-    # Elements
-    username = By.ID, 'userName'
-    password = By.ID, 'password'
-    login = By.ID, 'loginUser'
-    error = By.CLASS_NAME, 'error_container_inner'
-    eula_css = By.CSS_SELECTOR, "[for='eulaAccepted'].checkBoxLabel"
-    eula_xpath = By.XPATH, "//*[@id='eulaAccepted']"
-    auto_login = By.XPATH, "//*[@id='autologin']"
-    logo_ws = By.ID, 'logo-ws'
-    user_button = By.ID, 'user-button'
-    logout = By.CSS_SELECTOR, "[href='Logout.aspx']"
-    # Navigation buttons
+
 
     def test(self):
         # Opens test branch
