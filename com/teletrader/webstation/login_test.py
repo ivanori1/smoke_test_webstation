@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 from com.teletrader.webstation.elements_and_data import Elements, Data
+import logging
 
 
 class TestLogin(unittest.TestCase):
@@ -13,6 +14,7 @@ class TestLogin(unittest.TestCase):
 
         # Opens test branch
         driver.get(Data.base_url)
+        logging.info("2. Test case Login starts...")
         # Test Case: Assert Title is TeleTrader WebStation
         assert Data.base_title == driver.title
         # Test Case: Uncheck eula
@@ -20,12 +22,14 @@ class TestLogin(unittest.TestCase):
         driver.find_element(*Elements.password).send_keys(Data.str_password)
         driver.find_element(*Elements.login_button).click()
         assert Data.error_accept_eula == driver.find_element(*Elements.error_container).text
+        logging.info(Data.error_accept_eula)
         # Test Case: Successful login
         driver.find_element(*Elements.username).clear()
         driver.find_element(*Elements.username).send_keys(Data.str_username)
         driver.find_element(*Elements.password).send_keys(Data.str_password)
         driver.find_element(*Elements.eula_css).click()
         driver.find_element(*Elements.login_button).click()
+        logging.info("Successful login")
         # Test Outcome: Start page is displayed
         assert driver.find_element(*Elements.logo_ws).is_displayed()
         # Test Case: Logout
@@ -37,3 +41,7 @@ class TestLogin(unittest.TestCase):
         driver.implicitly_wait(10)
         self.assertTrue(driver.find_element(*Elements.eula_xpath).is_selected())
         self.assertTrue(driver.find_element(*Elements.auto_login).is_selected())
+        logging.info("Successful logout. EULA“ and „Stay logged in“ are selected.")
+
+        # Quit Browser
+        driver.quit()
