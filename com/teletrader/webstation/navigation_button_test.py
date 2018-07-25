@@ -20,7 +20,6 @@ class TestNavigationButtons(unittest.TestCase):
         wait = WebDriverWait(driver, 20)
         # Opens test branch
         driver.get(Data.base_url)
-        logging.info("2. Test case Navigation buttons starts...")
         # Test Case: Assert Title is TeleTrader WebStation
         assert Data.base_title == driver.title
         # Login
@@ -29,110 +28,94 @@ class TestNavigationButtons(unittest.TestCase):
         driver.find_element(*Elements.eula_css).click()
         driver.find_element(*Elements.login_button).click()
         wait.until(EC.presence_of_element_located(Elements.logo_ws))
-        logging.info("Successful login")
         # Test Case:Currency button
         driver.find_element(*Elements.currencies_button).click()
         # Test Outcome: Currency Detail page header
         wait.until(EC.presence_of_element_located(Elements.currencies_header))
         self.assertTrue(driver.find_element(*Elements.currencies_header).is_displayed())
-        logging.info("Currency detail page is open")
 
         # Test Case:Market button
         driver.find_element(*Elements.market_button).click()
         # Test Outcome: Market Detail page header
         wait.until(EC.presence_of_element_located(Elements.market_header))
         self.assertTrue(driver.find_element(*Elements.market_header).is_displayed())
-        logging.info("Markets detail page is open")
 
         # Test Case: Commodities button
         driver.find_element(*Elements.commodities_button).click()
         # Test Outcome: Commodities Detail page header
         wait.until(EC.presence_of_element_located(Elements.commodities_header))
         self.assertTrue(driver.find_element(*Elements.commodities_header).is_displayed())
-        logging.info("Commodities detail page is open")
 
         # Test Case:Fixed Income button
         driver.find_element(*Elements.fixed_income_button).click()
         # Test Outcome: Fixed Income Detail page header
         wait.until(EC.presence_of_element_located(Elements.fixedIncome_header))
         self.assertTrue(driver.find_element(*Elements.fixedIncome_header).is_displayed())
-        logging.info("Fixed income detail page is open")
 
         # Test Case: Futures button
         driver.find_element(*Elements.futures_button).click()
         # Test Outcome: Futures Detail page header
         wait.until(EC.presence_of_element_located(Elements.futures_header))
         self.assertTrue(driver.find_element(*Elements.futures_header).is_displayed())
-        logging.info("Futures detail page is open")
 
         # Test Case: Trump Effect button
         driver.find_element(*Elements.trump_effect_button).click()
         # Test Outcome: Trump Effect Detail page header
         wait.until(EC.presence_of_element_located(Elements.trump_effect_header))
         self.assertTrue(driver.find_element(*Elements.trump_effect_header).is_displayed())
-        logging.info("Trump effect detail page is open")
 
         # Test Case: Screener button
         driver.find_element(*Elements.screener_button).click()
         # Test Outcome: Screener Detail page header
         wait.until(EC.presence_of_element_located(Elements.screener_header))
         self.assertTrue(driver.find_element(*Elements.screener_header).is_displayed())
-        logging.info("Screener detail page is open")
 
         # Test Case: Funds button
         driver.find_element(*Elements.funds_button).click()
         # Test Outcome: Funds Detail page header
         wait.until(EC.presence_of_element_located(Elements.funds_header))
         self.assertTrue(driver.find_element(*Elements.funds_header).is_displayed())
-        logging.info("Funds detail page is open")
 
         # Test Case: News button
         driver.find_element(*Elements.news_button).click()
         # Test Outcome: News Detail page header
         wait.until(EC.presence_of_element_located(Elements.news_header))
         self.assertTrue(driver.find_element(*Elements.news_header).is_displayed())
-        logging.info("News detail page is open")
 
         # Test Case: Calendar button
         driver.find_element(*Elements.calendar_button).click()
         # Test Outcome: Calendar Detail page header
         wait.until(EC.presence_of_element_located(Elements.calendar_header))
         self.assertTrue(driver.find_element(*Elements.calendar_header).is_displayed())
-        logging.info("Calendar detail page is open")
 
         # Test Case: Portfolio button
         driver.find_element(*Elements.portfolio_button).click()
         # Test Outcome: Portfolio Detail page header
         wait.until(EC.presence_of_element_located(Elements.portfolio_header))
         self.assertTrue(driver.find_element(*Elements.portfolio_header).is_displayed())
-        logging.info("Portfolio detail page is open")
         # TODO if no portfolio scenario
         # Test Case: Watchlist button
         driver.find_element(*Elements.watchlist_button).click()
         # Test Outcome: Watchlist Detail page header
         wait.until(EC.presence_of_element_located(Elements.watchlist_header))
-        logging.info("Watchlist detail page is open")
         # TODO if no watchlist scenario
         # Test Case: Analyzer button
         driver.find_element(*Elements.analyzer_button).click()
         # Test Outcome: Analyzer Detail page header
         wait.until(EC.presence_of_element_located(Elements.analyzer_header))
         self.assertTrue(driver.find_element(*Elements.analyzer_header).is_displayed())
-        logging.info("Analyzer detail page is open")
 
         # Test Case: Alerts button
         driver.find_element(*Elements.alert_button).click()
         # Test Outcome: Alert Detail page header
         wait.until(EC.presence_of_element_located(Elements.alert_header))
         self.assertTrue(driver.find_element(*Elements.alert_button).is_displayed())
-        logging.info("Analyzer detail page is open")
 
         # Test Case: Economic Data button
         driver.find_element(*Elements.economic_data_button).click()
         # Test Outcome: Economic Data Detail page header
         wait.until(EC.presence_of_element_located(Elements.economic_data_header))
         self.assertTrue(driver.find_element(*Elements.economic_data_header).is_displayed())
-        logging.info("Economic Data detail page is open")
 
 
         # Test Case: ETFs button
@@ -140,13 +123,10 @@ class TestNavigationButtons(unittest.TestCase):
         # Test Outcome: ETFs Detail page header
         wait.until(EC.presence_of_element_located(Elements.etf_header))
         self.assertTrue(driver.find_element(*Elements.etf_header).is_displayed())
-        logging.info("ETFs Data detail page is open")
 
         # Test Case: Real Time button
         driver.find_element(*Elements.real_time_button).click()
         # Test Outcome: Real Time Detail page header
         wait.until(EC.presence_of_element_located(Elements.real_time_header))
         self.assertTrue(driver.find_element(*Elements.real_time_header).is_displayed())
-        logging.info("Real Time Data detail page is open")
-
 
