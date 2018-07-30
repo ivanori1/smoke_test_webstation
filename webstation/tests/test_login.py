@@ -5,7 +5,6 @@ from webstation.pages.login_page import LoginPage
 
 
 class TestLogin(unittest.TestCase):
-
     def test_failed_login(self):
         # Instance of Chrome browser
         driver = webdriver.Chrome()
