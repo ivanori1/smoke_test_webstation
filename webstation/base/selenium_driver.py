@@ -34,3 +34,17 @@ class SeleniumDriver:
         else:
             print("Compared text do not match")
             return False
+
+    def send_keys_to_element(self, data, locator, locator_type="css"):
+        try:
+            element = self.get_element(locator, locator_type)
+            element.send_keys(data)
+        except:
+            print("send keys not performed")
+
+    def is_visible_element(self, locator, locator_type="css"):
+        element_visible = self.get_element(locator, locator_type).is_displayed()
+        if element_visible:
+            return True
+        else:
+            return False
