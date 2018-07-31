@@ -17,6 +17,10 @@ class LoginPage(SeleniumDriver):
     def click_login_button(self):
         self.click_on_element(self._login_button)
 
+    def open_start_page(self):
+        self.driver.maximize_window()
+        self.driver.get("http://webstationtest3.ttweb.net/WebStation.aspx")
+
     def test_failed_login(self):
         self.click_login_button()
 
