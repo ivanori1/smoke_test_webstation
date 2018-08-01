@@ -1,4 +1,5 @@
 from webstation.base.selenium_driver import SeleniumDriver
+from webstation.pages.header_page import HeaderPage
 
 
 class LoginPage(SeleniumDriver):
@@ -11,22 +12,33 @@ class LoginPage(SeleniumDriver):
     _username_placeholder = "#userName"
     _password_placeholder = "#password"
     _eula_checkbox = "[for='eulaAccepted'].checkBoxLabel"
+    _eula_checkbox_xpath = "//*[@id='eulaAccepted']"
+    _autologin_checkbox = "[for='autologin'].checkBoxLabel"
+    _autologin_checkbox_xpath = "//*[@id='autologin']"
     _login_button = "#loginUser"
     _error_box = ".error_container_inner"
-    _logo_ws = "#logo-ws"
-
-
     # Errors
     _accept_eula_error = "You have to accept the End User License Agreement in order to log in."
 
-    def type_username_placeholder(self,username):
-        self.send_keys_to_element(username,self._username_placeholder)
+    def type_username_placeholder(self, username):
+        self.send_keys_to_element(username, self._username_placeholder)
 
-    def type_password_placeholder(self,password):
-        self.send_keys_to_element(password,self._password_placeholder)
+    def type_password_placeholder(self, password):
+        self.send_keys_to_element(password, self._password_placeholder)
+
+    def is_eula_checked(self):
+        self.is_selected_element(self._eula_checkbox_xpath)
 
     def check_eula(self):
-        self.click_on_element(self._eula_checkbox)
+        if not self.is_eula_checked():
+            self.click_on_element(self._eula_checkbox)
+
+    def is_autologin_checked(self):
+        self.is_selected_element(self._autologin_checkbox_xpath)
+
+    def check_autologin(self):
+        if not self.is_autologin_checked():
+            self.click_on_element(self._autologin_checkbox)
 
     def click_login_button(self):
         self.click_on_element(self._login_button)
@@ -42,13 +54,12 @@ class LoginPage(SeleniumDriver):
         result = self.text_of_element(self._accept_eula_error, self._error_box)
         return result
 
-    def test_success_login(self, username ="ivan.coric91", password="ictrader123"):
+    def test_success_login(self, username="ivan.coric91", password="ictrader123"):
         self.type_username_placeholder(username)
         self.type_password_placeholder(password)
         self.check_eula()
         self.click_login_button()
 
-    def verify_success_login(self):
-        result = self.is_visible_element(self._logo_ws)
+    def verify_auto_login_and_eula_checked(self):
+        result = self.is_eula_checked() and self.is_autologin_checked()
         return result
-
