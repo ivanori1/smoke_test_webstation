@@ -8,6 +8,8 @@ class SeleniumDriver:
     def get_by_type(self, locator_type):
         if locator_type == "css":
             return By.CSS_SELECTOR
+        elif locator_type == "xpath":
+            return By.XPATH
         else:
             print("Unknown selector")
 
@@ -17,7 +19,7 @@ class SeleniumDriver:
             by_type = self.get_by_type(locator_type)
             element = self.driver.find_element(by_type, locator)
         except:
-            print("element not found")
+            print("element not found " + locator.upper())
         return element
 
     def click_on_element(self, locator, locator_type="css"):
@@ -45,6 +47,13 @@ class SeleniumDriver:
     def is_visible_element(self, locator, locator_type="css"):
         element_visible = self.get_element(locator, locator_type).is_displayed()
         if element_visible:
+            return True
+        else:
+            return False
+
+    def is_selected_element(self, locator, locator_type="xpath"):
+        element_is_selected = self.get_element(locator, locator_type).is_selected()
+        if element_is_selected:
             return True
         else:
             return False
