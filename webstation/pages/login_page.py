@@ -1,5 +1,4 @@
 from webstation.base.selenium_driver import SeleniumDriver
-from webstation.pages.header_page import HeaderPage
 
 
 class LoginPage(SeleniumDriver):
@@ -27,15 +26,16 @@ class LoginPage(SeleniumDriver):
         self.send_keys_to_element(password, self._password_placeholder)
 
     def is_eula_checked(self):
-        self.is_selected_element(self._eula_checkbox_xpath)
+        eula_TF = self.is_selected_element(self._eula_checkbox_xpath)
+        return eula_TF
 
     def check_eula(self):
         if not self.is_eula_checked():
             self.click_on_element(self._eula_checkbox)
 
     def is_autologin_checked(self):
-        self.is_selected_element(self._autologin_checkbox_xpath)
-
+        autologinTF = self.is_selected_element(self._autologin_checkbox_xpath)
+        return autologinTF
     def check_autologin(self):
         if not self.is_autologin_checked():
             self.click_on_element(self._autologin_checkbox)
@@ -61,5 +61,6 @@ class LoginPage(SeleniumDriver):
         self.click_login_button()
 
     def verify_auto_login_and_eula_checked(self):
-        result = self.is_eula_checked() and self.is_autologin_checked()
+        result = self.is_autologin_checked() and self.is_eula_checked()
         return result
+

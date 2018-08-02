@@ -24,4 +24,4 @@ class TestLogin(unittest.TestCase):
     @pytest.mark.run(order=3)
     def test_3_logout(self):
         self.header_p.perform_logout()
-        #self.assertTrue(self.login_p.verify_auto_login_and_eula_checked())
+        self.assertTrue(self.login_p.verify_auto_login_and_eula_checked())
