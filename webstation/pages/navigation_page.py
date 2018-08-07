@@ -1,7 +1,7 @@
 from webstation.base.selenium_driver import SeleniumDriver
 
 
-class LoginPage(SeleniumDriver):
+class NavigationPage(SeleniumDriver):
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -19,7 +19,7 @@ class LoginPage(SeleniumDriver):
     _analyzer_button = ".navigation-vertical [href='analyzer.aspx']"
     _portfolio_button = ".navigation-vertical [href='personal_portfolioDetail.aspx']"
     _watchlist_button = ".navigation-vertical [href='personal_watchlist.aspx']"
-    _alert_button = ".navigation-vertical [href='personal_notifications.aspx']"
+    _alert_button = ".navigation-vertical [hregf='personal_notifications.aspx']"
     _economic_data_button = ".navigation-vertical [href='economic_calendar.aspx']"
     _trump_effect_button = ".navigation-vertical [href='trump_effect.aspx']"
     _back_tester_button = ".navigation-vertical [href='portfolio_backtester.aspx']"
@@ -47,3 +47,9 @@ class LoginPage(SeleniumDriver):
     _etf_header = ".main-pages-header.etf"
     _real_time_header = ".main-pages-header.realtimeIn"
 
+    def click_markets_button(self):
+        self.click_on_element(self._market_button)
+
+    def is_visible_markets_header(self):
+        result = self.is_visible_element(self._market_header)
+        return result
