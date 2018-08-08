@@ -51,6 +51,7 @@ class NavigationPage(SeleniumDriver):
         self.click_on_element(self._market_button)
 
     def is_visible_markets_header(self):
+        self.wait_for_element(self._market_header)
         result = self.is_visible_element(self._market_header)
         return result
 
@@ -58,10 +59,38 @@ class NavigationPage(SeleniumDriver):
         self.click_on_element(self._currencies_button)
 
     def is_visible_currency_header(self):
-        pass
+        self.wait_for_element(self._currencies_header)
+        result = self.is_visible_element(self._currencies_header)
+        return result
 
     def click_on_commodities(self):
         self.click_on_element(self._commodities_button)
 
     def is_visible_commodities_header(self):
-        pass
+        self.wait_for_element(self._commodities_header)
+        result = self.is_visible_element(self._commodities_header)
+        return result
+
+    def click_on_fixed_income(self):
+        self.click_on_element(self._fixed_income_button)
+
+    def is_visible_fixed_income_header(self):
+        self.wait_for_element(self._fixedIncome_header)
+        result = self.is_visible_element(self._fixed_income_button)
+        return result
+
+    def click_on_futures(self):
+        self.click_on_element(self._futures_button)
+
+    def is_visible_future_header(self):
+        self.wait_for_element(self._futures_header)
+        result = self.is_visible_element(self._futures_header)
+        return result
+
+    def click_on_trump_effect(self):
+        self.click_on_element(self._trump_effect_button)
+
+    def is_visible_trump_header(self):
+        self.wait_for_element(self._trump_effect_header)
+        result = self.is_visible_element(self._trump_effect_header)
+        return result
