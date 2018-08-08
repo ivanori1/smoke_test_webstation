@@ -53,3 +53,15 @@ class NavigationPage(SeleniumDriver):
     def is_visible_markets_header(self):
         result = self.is_visible_element(self._market_header)
         return result
+
+    def click_currency_button(self):
+        self.click_on_element(self._currencies_button)
+
+    def is_visible_currency_header(self):
+        pass
+
+    def click_on_commodities(self):
+        self.click_on_element(self._commodities_button)
+
+    def is_visible_commodities_header(self):
+        pass

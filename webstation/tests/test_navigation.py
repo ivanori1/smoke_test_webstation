@@ -19,4 +19,12 @@ class TestNavigation(unittest.TestCase):
 
     def test_2_click_markets(self):
         self.navigation_p.click_markets_button()
-        self.assertTrue(self.navigation_p.is_visible_markets_header())
+
+    def test_3_click_currency(self):
+        self.navigation_p.click_currency_button()
+
+    def test_4_click_commodities(self):
+        self.navigation_p.click_on_commodities()
+
+    def test_5_click_fixed_income(self):
+        pass
