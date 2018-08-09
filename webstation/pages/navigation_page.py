@@ -22,6 +22,7 @@ class NavigationPage(SeleniumDriver):
     _alert_button = ".navigation-vertical [hregf='personal_notifications.aspx']"
     _economic_data_button = ".navigation-vertical [href='economic_calendar.aspx']"
     _trump_effect_button = ".navigation-vertical [href='trump_effect.aspx']"
+    _personal_page_button = ".icon-container [href='personal_dashboardreact.aspx']"
     _back_tester_button = ".navigation-vertical [href='portfolio_backtester.aspx']"
     _screener_button = ".navigation-vertical [href='screener_overview.aspx']"
     _etf_button = ".navigation-vertical [href='funds_etfOverview.aspx']"
@@ -40,6 +41,7 @@ class NavigationPage(SeleniumDriver):
     _portfolio_header = ".main-pages-header.portfolio"
     _watchlist_header = ".main-pages-header.watchlist"
     _alert_header = ".main-pages-header.alerts"
+    _personal_page_header = ".main-pages-header.personal-pages"
     _trump_effect_header = ".main-pages-header.trumpEfect"
     _economic_data_header = ".main-pages-header.economicCalendar"
     _back_tester_header = ".backtester-header.back-tester"
@@ -93,4 +95,12 @@ class NavigationPage(SeleniumDriver):
     def is_visible_trump_header(self):
         self.wait_for_element(self._trump_effect_header)
         result = self.is_visible_element(self._trump_effect_header)
+        return result
+
+    def click_personal_page(self):
+        self.click_on_element(self._personal_page_button)
+
+    def is_visible_personal_page_header(self):
+        self.wait_for_element(self._personal_page_header)
+        result = self.is_visible_element(self._personal_page_header)
         return result
