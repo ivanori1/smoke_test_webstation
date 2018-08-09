@@ -48,17 +48,11 @@ class SeleniumDriver:
 
     def is_visible_element(self, locator, locator_type="css"):
         element_visible = self.get_element(locator, locator_type).is_displayed()
-        if element_visible:
-            return True
-        else:
-            return False
+        return element_visible
 
     def is_selected_element(self, locator, locator_type="xpath"):
         element_is_selected = self.get_element(locator, locator_type).is_selected()
-        if element_is_selected:
-            return True
-        else:
-            return False
+        return element_is_selected
 
     def wait_for_element(self, locator, locator_type="css"):
         by_type = self.get_by_type(locator_type)
