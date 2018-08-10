@@ -53,6 +53,46 @@ class TestNavigation(unittest.TestCase):
         self.navigation_p.click_screener()
         self.assertTrue(self.navigation_p.is_visible_screener_header())
 
-    def test_clik_funds(self):
+    def test_click_funds(self):
         self.navigation_p.click_funds()
         self.navigation_p.is_visible_funds_header()
+
+    def test_click_news(self):
+        self.navigation_p.click_news()
+        self.navigation_p.is_visible_news_header()
+
+    def test_click_portfolio(self):
+        self.navigation_p.click_portfolio()
+        self.navigation_p.is_visible_portfolio_header()
+
+    def test_click_watchlist(self):
+        self.navigation_p.click_watchlist()
+        self.navigation_p.is_visible_watchlist_header()
+
+    def test_click_calendar(self):
+        self.navigation_p.click_calendar()
+        self.navigation_p.is_visible_calendar_header()
+
+    def test_click_analyzer(self):
+        self.navigation_p.click_analyzer()
+        self.navigation_p.is_visible_analyzer_header()
+
+    def test_click_alerts(self):
+        self.navigation_p.click_alerts()
+        self.navigation_p.is_visible_alert_header()
+
+    def test_click_economic_data(self):
+        self.navigation_p.click_economic_data()
+        self.navigation_p.is_visible_economic_data_header()
+
+    def test_click_etf(self):
+        self.navigation_p.click_etf()
+        self.navigation_p.is_visible_etf_header()
+
+    def test_click_real_time(self):
+        self.navigation_p.click_real_time()
+        self.navigation_p.is_visible_real_time_header()
+
+    def test_click_smart_backtester(self):
+        self.navigation_p.click_on_smart_backtester()
+        self.navigation_p.is_visible_smart_backtester()

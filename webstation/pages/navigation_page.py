@@ -78,7 +78,7 @@ class NavigationPage(SeleniumDriver):
 
     def is_visible_fixed_income_header(self):
         self.wait_for_element(self._fixedIncome_header)
-        result = self.is_visible_element(self._fixed_income_button)
+        result = self.is_visible_element(self.is_visible_fixed_income_header())
         return result
 
     def click_on_futures(self):
@@ -127,4 +127,75 @@ class NavigationPage(SeleniumDriver):
     def is_visible_funds_header(self):
         self.wait_for_element(self._futures_header)
         result = self.is_visible_element(self._futures_header)
+        return result
+
+    def click_news(self):
+        self.click_on_element(self._news_button)
+
+    def is_visible_news_header(self):
+        self.wait_for_element(self._news_header)
+        result = self.is_visible_element(self._news_header)
+        return result
+
+    def click_portfolio(self):
+        self.click_on_element(self._portfolio_button)
+
+    def is_visible_portfolio_header(self):
+        self.wait_for_element(self._portfolio_header)
+        result = self.is_visible_element(self._portfolio_header)
+        return result
+
+    def click_watchlist(self):
+        self.click_on_element(self._watchlist_button)
+
+    def is_visible_watchlist_header(self):
+        self.wait_for_element(self._watchlist_header)
+        result = self.is_visible_element(self._watchlist_header)
+        return result
+    def click_calendar(self):
+        self.click_on_element(self._calendar_button)
+
+    def is_visible_calendar_header(self):
+        self.wait_for_element(self._calendar_header)
+        result = self.is_visible_element(self._calendar_header)
+        return result
+
+    def click_analyzer(self):
+        self.click_on_element(self._analyzer_button)
+
+    def is_visible_analyzer_header(self):
+        self.wait_for_element(self._analyzer_header)
+        result = self.is_visible_element(self._analyzer_header)
+        return result
+
+    def click_alerts(self):
+        self.click_on_element(self._alert_button)
+
+    def is_visible_alert_header(self):
+        self.wait_for_element(self._alert_header)
+        result = self.is_visible_element(self._alert_header)
+        return result
+
+    def click_economic_data(self):
+        self.click_economic_data()
+
+    def is_visible_economic_data_header(self):
+        self.wait_for_element(self._economic_data_header)
+        result = self.is_visible_element(self._economic_data_header)
+        return result
+
+    def click_etf(self):
+        self.click_on_element(self._etf_button)
+
+    def is_visible_etf_header(self):
+        self.wait_for_element(self._etf_header)
+        result = self.is_visible_element(self._etf_header)
+        return result
+
+    def click_real_time(self):
+        self.click_on_element(self._real_time_button)
+
+    def is_visible_real_time_header(self):
+        self.wait_for_element(self._real_time_header)
+        result = self.is_visible_element(self._real_time_header)
         return result
