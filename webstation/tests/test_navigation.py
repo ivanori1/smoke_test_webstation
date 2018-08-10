@@ -48,3 +48,11 @@ class TestNavigation(unittest.TestCase):
     def test_click_personal_page(self):
         self.navigation_p.click_personal_page()
         self.assertTrue(self.navigation_p.is_visible_personal_page_header())
+
+    def test_click_screener(self):
+        self.navigation_p.click_screener()
+        self.assertTrue(self.navigation_p.is_visible_screener_header())
+
+    def test_clik_funds(self):
+        self.navigation_p.click_funds()
+        self.navigation_p.is_visible_funds_header()

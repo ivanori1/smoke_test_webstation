@@ -104,3 +104,27 @@ class NavigationPage(SeleniumDriver):
         self.wait_for_element(self._personal_page_header)
         result = self.is_visible_element(self._personal_page_header)
         return result
+
+    def click_on_smart_backtester(self):
+        self.click_on_element(self._back_tester_button)
+
+    def is_visible_smart_backtester(self):
+        self.wait_for_element(self._back_tester_header)
+        result = self.is_visible_element(self._back_tester_header)
+        return result
+
+    def click_screener(self):
+        self.click_on_element(self._screener_button)
+
+    def is_visible_screener_header(self):
+        self.wait_for_element(self._screener_header)
+        result = self.is_visible_element(self._screener_header)
+        return result
+
+    def click_funds(self):
+        self.click_on_element(self._funds_button)
+
+    def is_visible_funds_header(self):
+        self.wait_for_element(self._futures_header)
+        result = self.is_visible_element(self._futures_header)
+        return result
