@@ -8,6 +8,7 @@ class HeaderPage(SeleniumDriver):
         self.driver = driver
 
     # Elements
+    _left_div = "#leftDiv"
     _navigation_vertical_container = ".navigation-vertical-container"
     _logo_ws_image = "#logo-ws"
     _user_button = ".header_button#user-button"
@@ -27,6 +28,7 @@ class HeaderPage(SeleniumDriver):
         self.click_on_element(self._logout_link)
 
     def click_layout_button(self):
+        self.wait_for_element_to_be_clickable(self._layout_button)
         self.click_on_element(self._layout_button)
 
     def click_full_vertical_navigation(self):
@@ -50,5 +52,10 @@ class HeaderPage(SeleniumDriver):
 
     def is_navigation_visible(self):
         result = self.is_visible_element(self._navigation_vertical_container)
+        if not result:
+            self.perform_change_layout_vertical()
+
+    def is_left_div_visible(self):
+        result = self.is_visible_element(self._left_div)
         if not result:
             self.perform_change_layout_vertical()
