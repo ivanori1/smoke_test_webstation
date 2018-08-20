@@ -18,6 +18,7 @@ class TestLogin(unittest.TestCase):
 
     @pytest.mark.run(order=2)
     def test_2_successful_login(self):
+        print(self.driver.find_element_by_css_selector("#userName").get_attribute("placeholder"))
         self.login_p.test_success_login()
         self.assertTrue(self.header_p.verify_success_login())
 

@@ -66,5 +66,10 @@ class SeleniumDriver:
         element = wait.until(EC.element_to_be_clickable((by_type, locator)))
         return element
 
-
+    def attribute_value_of_element(self, attribute_name, locator, locator_type="css"):
+        try:
+            element_attribute = self.get_element(locator, locator_type)
+            element_attribute.get_attribute(attribute_name)
+        except:
+            print("value of atribute not found")
 

@@ -20,6 +20,7 @@ class LoginPage(SeleniumDriver):
     _accept_eula_error = "You have to accept the End User License Agreement in order to log in."
 
     def type_username_placeholder(self, username):
+        print(self.attribute_value_of_element("placeholder", self._username_placeholder))
         self.send_keys_to_element(username, self._username_placeholder)
 
     def type_password_placeholder(self, password):
