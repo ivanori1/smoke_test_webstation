@@ -1,11 +1,27 @@
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
 
 
 class SeleniumDriver:
-    def __init__(self, driver):
-        self.driver = driver
+    driver = webdriver.Chrome()
+    driver.implicitly_wait(30)
+    driver.set_page_load_timeout(30)
+    driver.maximize_window()
+
+    def close(context):
+        context.driver.close()
+
+    def navigate(self, address):
+        self.driver.get(address)
+
+    def get_page_url(self):
+        return self.driver.current_url
+
+    def get_page_title(self):
+        return self.driver.title
 
     def get_by_type(self, locator_type):
         if locator_type == "css":
@@ -68,8 +84,18 @@ class SeleniumDriver:
 
     def attribute_value_of_element(self, attribute_name, locator, locator_type="css"):
         try:
-            element_attribute = self.get_element(locator, locator_type)
-            element_attribute.get_attribute(attribute_name)
+            element = self.get_element(locator, locator_type)
+            element_attribute = element.get_attribute(attribute_name)
+            return element_attribute
         except:
             print("value of atribute not found")
 
+    def select_from_dropdown(self, text, locator, locator_type="css"):
+        try:
+            select_dropdown = Select(self.get_element(locator, locator_type))
+            select_dropdown.select_by_visible_text(text)
+            print("Selected element is: " + text)
+
+        except:
+
+            print("element not found " + locator)
