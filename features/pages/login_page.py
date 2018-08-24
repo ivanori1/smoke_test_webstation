@@ -1,12 +1,7 @@
-from webstation.base.selenium_driver import SeleniumDriver
+from features.base.selenium_driver import SeleniumDriver
 
 
 class LoginPage(SeleniumDriver):
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Elements
     _username_placeholder = "#userName"
     _password_placeholder = "#password"
@@ -46,13 +41,13 @@ class LoginPage(SeleniumDriver):
 
     def open_start_page(self):
         self.driver.maximize_window()
-        self.driver.get("http://webstationtest3.ttweb.net/WebStation.aspx")
+        self.driver.get("https://demo-biq.dev.tradecore.io/#/")
 
     def test_failed_login(self):
         self.click_login_button()
 
-    def verify_failed_login(self):
-        result = self.text_of_element(self._accept_eula_error, self._error_box)
+    def verify_failed_login(self,error):
+        result = self.text_of_element(error, self._error_box)
         return result
 
     def test_success_login(self, username="ivan.coric91", password="ictrader123"):
