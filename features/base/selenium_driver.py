@@ -58,6 +58,7 @@ class SeleniumDriver:
     def send_keys_to_element(self, data, locator, locator_type="css"):
         try:
             element = self.get_element(locator, locator_type)
+            element.clear()
             element.send_keys(data)
         except:
             print("send keys not performed")
