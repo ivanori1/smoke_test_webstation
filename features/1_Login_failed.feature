@@ -36,3 +36,10 @@ Feature: Login Failed
       | languages |  | messages                                                                                             |
       | English   |  | This user account is disabled. Please contact the support team for further actions.                  |
       | Deutch    |  | Dieser Benutzerzugang ist deaktiviert. Bitte kontaktieren Sie das Support Team für weitere Aktionen. |
+
+  Scenario: Success login
+    Given Select language "English"
+    When Username "ivan.coric91" and password "ictrader123"
+    And Accept EULA is "checked"
+    And Click on Login button
+    Then Home page will appear
