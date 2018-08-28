@@ -35,3 +35,7 @@ def step_impl(context, status):
 @step('Accept EULA is "{status}"')
 def step_impl(context, status):
     context.login_page.check_eula(status)
+
+@then('Home page will appear')
+def step_impl(context):
+    assert context.login_page.home_page_logo_appear()
