@@ -14,6 +14,7 @@ class LoginPage(SeleniumDriver):
     _language_box = "#langButton1"
     _language_box_en = "#langNavien"
     _language_box_de = "#langNavide"
+    _logo_image = "#logo-ws"
 
     def select_language(self, language):
         self.click_on_element(self._language_box)
@@ -66,12 +67,11 @@ class LoginPage(SeleniumDriver):
         result = self.text_of_element(error, self._error_box)
         return result
 
-    def test_success_login(self, username="ivan.coric91", password="ictrader123"):
-        self.type_username_placeholder(username)
-        self.type_password_placeholder(password)
-        self.check_eula()
-        self.click_login_button()
-
     def verify_auto_login_and_eula_checked(self):
         result = self.is_autologin_checked() and self.is_eula_checked()
+        return result
+
+    def home_page_logo_appear(self):
+        self.wait_for_element(self._logo_image)
+        result = self.is_visible_element(self._logo_image)
         return result
