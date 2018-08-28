@@ -48,11 +48,12 @@ class SeleniumDriver:
             print("click action not performed")
 
     def text_of_element(self, inner_text, locator, locator_type="css"):
-        element_text = self.get_element(locator, locator_type).text
+        element_text = self.get_element(locator, locator_type).text.replace('\n',' ')
+
         if element_text == inner_text:
             return True
         else:
-            print("Compared text do not match")
+            print("Compared text " + element_text + " do not match with " + inner_text)
             return False
 
     def send_keys_to_element(self, data, locator, locator_type="css"):
