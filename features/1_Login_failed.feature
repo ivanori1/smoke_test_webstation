@@ -42,4 +42,4 @@ Feature: Login Failed
     When Username "ivan.coric91" and password "ictrader123"
     And Accept EULA is "checked"
     And Click on Login button
-    Then Home page will appear
+    Then Home button will appear
