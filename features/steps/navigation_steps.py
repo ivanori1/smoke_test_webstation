@@ -14,3 +14,8 @@ def step_impl(context):
 @step('Click on customize and control button')
 def step_impl(context):
     context.header_page.click_on_costomize_and_control()
+
+
+@step('Click on Set As Start Page')
+def step_impl(context):
+    context.header_page.click_on_set_as_start_page()
