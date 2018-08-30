@@ -21,6 +21,11 @@ def step_impl(context):
     context.header_page.click_on_set_as_start_page()
 
 
+@step('Click on Home button')
+def step_impl(context):
+    context.header_page.click_on_home_button()
+
+
 @then('News detail page will appear')
 def step_impl(context):
     assert context.header_page.is_news_header_visible()
