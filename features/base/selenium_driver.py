@@ -23,6 +23,7 @@ class SeleniumDriver:
     def get_page_title(self):
         return self.driver.title
 
+
     def get_by_type(self, locator_type):
         if locator_type == "css":
             return By.CSS_SELECTOR

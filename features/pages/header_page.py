@@ -8,7 +8,10 @@ class HeaderPage(SeleniumDriver):
     vertical_navigation_layout_button = "[data-layout-id='full-vertical-navigation']"
     save_layout_button = "#saveLayout"
     costomize_and_control_button = "#user-button"
+    set_as_start_page_link = "[onclick*='setAsStartPage']"
 
+    # Headers
+    news_header = ".main-pages-header.news-header"
     # Navigation Buttons
     news_button = "[data-button='ne']"
 
@@ -27,3 +30,10 @@ class HeaderPage(SeleniumDriver):
 
     def click_on_costomize_and_control(self):
         self.click_on_element(self.costomize_and_control_button)
+
+    def click_on_set_as_start_page(self):
+        self.click_on_element(self.set_as_start_page_link)
+
+    def is_news_header_visible(self):
+        result = self.is_visible_element(self.news_header)
+        return result
