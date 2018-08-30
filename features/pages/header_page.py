@@ -9,7 +9,8 @@ class HeaderPage(SeleniumDriver):
     save_layout_button = "#saveLayout"
     costomize_and_control_button = "#user-button"
     set_as_start_page_link = "[onclick*='setAsStartPage']"
-
+    _logo_image = "#logo-ws"
+    _home_button = "#appIcon"
     # Headers
     news_header = ".main-pages-header.news-header"
     # Navigation Buttons
@@ -36,4 +37,12 @@ class HeaderPage(SeleniumDriver):
 
     def is_news_header_visible(self):
         result = self.is_visible_element(self.news_header)
+        return result
+
+    def click_on_home_button(self):
+        self.click_on_element(self._home_button)
+
+    def home_button_appear(self):
+        self.wait_for_element_to_be_clickable(self._home_button)
+        result = self.is_visible_element(self._home_button)
         return result
