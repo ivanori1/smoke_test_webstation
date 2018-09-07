@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
+from selenium.common.exceptions import *
 
 
 class SeleniumDriver:
@@ -10,6 +11,8 @@ class SeleniumDriver:
     driver.implicitly_wait(30)
     driver.set_page_load_timeout(30)
     driver.maximize_window()
+    wait = WebDriverWait(driver, 20, poll_frequency=1,
+                         ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
 
     def close(context):
         context.driver.close()
@@ -22,7 +25,6 @@ class SeleniumDriver:
 
     def get_page_title(self):
         return self.driver.title
-
 
     def get_by_type(self, locator_type):
         if locator_type == "css":
@@ -49,7 +51,7 @@ class SeleniumDriver:
             print("click action not performed")
 
     def text_of_element(self, inner_text, locator, locator_type="css"):
-        element_text = self.get_element(locator, locator_type).text.replace('\n',' ')
+        element_text = self.get_element(locator, locator_type).text.replace('\n', ' ')
 
         if element_text == inner_text:
             return True
@@ -75,14 +77,13 @@ class SeleniumDriver:
 
     def wait_for_element(self, locator, locator_type="css"):
         by_type = self.get_by_type(locator_type)
-        wait = WebDriverWait(self.driver, 10)
-        element = wait.until(EC.presence_of_element_located((by_type, locator)))
+        element = self.wait.until(EC.presence_of_element_located((by_type, locator)))
         return element
 
     def wait_for_element_to_be_clickable(self, locator, locator_type="css"):
         by_type = self.get_by_type(locator_type)
-        wait = WebDriverWait(self.driver, 10)
-        element = wait.until(EC.element_to_be_clickable((by_type, locator)))
+
+        element = self.wait.until(EC.element_to_be_clickable((by_type, locator)))
         return element
 
     def attribute_value_of_element(self, attribute_name, locator, locator_type="css"):
