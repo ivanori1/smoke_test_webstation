@@ -49,15 +49,16 @@ Feature: Login Failed
       | dpaafx.web92 | TTtest123   |
       | ivan.coric91 | ICtrader123 |
 
-  Scenario Outline: Expired session with autologin <status>
+
+  Scenario Outline: Expired session with login <status>
     Given Open WebStation login page with timeout
-    When Username "ican.coric91" and password "ICtrader123"
-    And  Stay logged in option is "<status>".
+    When Username "ivan.coric91" and password "ICtrader123"
+    And Stay logged in option is "<status>"
     And Click on Login button
-    And Click on Next Button
-    Then "A <buttons> button will appear
+    And Click on Next button
+    Then A "<page>" page will appear
 
     Examples:
-      | status    | buttons |
-      | checked   | Home    |
-      | unchecked | Login   |
+      | status    | page  |
+      | unchecked | Login |
+      | checked   | Home  |
