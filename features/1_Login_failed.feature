@@ -42,13 +42,11 @@ Feature: Login Failed
     When Username "<username>" and password "<password>"
     And Accept EULA is "checked"
     And Click on Login button
-    And "Home" button will appear
     Then Logout
 
     Examples:
       | username     | password    |
       | dpaafx.web92 | TTtest123   |
-      | teletrad.95  | 7zvTFDRY    |
       | ivan.coric91 | ICtrader123 |
 
   Scenario Outline: Expired session with autologin <status>
@@ -56,7 +54,8 @@ Feature: Login Failed
     When Username "ican.coric91" and password "ICtrader123"
     And  Stay logged in option is "<status>".
     And Click on Login button
-    And "<buttons> button will appear
+    And Click on Next Button
+    Then "A <buttons> button will appear
 
     Examples:
       | status    | buttons |
