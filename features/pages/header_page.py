@@ -31,6 +31,7 @@ class HeaderPage(SeleniumDriver):
         self.click_on_element(self.news_button)
 
     def click_on_costomize_and_control(self):
+        self.wait_for_element_to_be_clickable(self.costomize_and_control_button)
         self.click_on_element(self.costomize_and_control_button)
 
     def click_on_set_as_start_page(self):
@@ -46,7 +47,3 @@ class HeaderPage(SeleniumDriver):
     def click_on_home_button(self):
         self.click_on_element(self._home_button)
 
-    def home_button_appear(self):
-        self.wait_for_element_to_be_clickable(self._home_button)
-        result = self.is_visible_element(self._home_button)
-        return result
