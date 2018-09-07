@@ -15,6 +15,7 @@ class LoginPage(SeleniumDriver):
     _language_box_en = "#langNavien"
     _language_box_de = "#langNavide"
     _home_button = "#appIcon"
+    _relog_button = "#relogButton"
 
     def select_language(self, language):
         self.click_on_element(self._language_box)
@@ -24,9 +25,11 @@ class LoginPage(SeleniumDriver):
             self.click_on_element(self._language_box_de)
 
     def type_username_placeholder(self, username):
+        self.wait_for_element(self._username_placeholder)
         self.send_keys_to_element(username, self._username_placeholder)
 
     def type_password_placeholder(self, password):
+        self.wait_for_element(self._password_placeholder)
         self.send_keys_to_element(password, self._password_placeholder)
 
     def is_eula_checked(self):
@@ -56,6 +59,10 @@ class LoginPage(SeleniumDriver):
     def click_login_button(self):
         self.click_on_element(self._login_button)
 
+    def verify_login_button_visible(self):
+        result = self.is_visible_element(self._login_button)
+        return result
+
     def open_start_page(self):
         self.driver.maximize_window()
         self.driver.get("https://demo-biq.dev.tradecore.io/#/")
@@ -74,11 +81,10 @@ class LoginPage(SeleniumDriver):
     def wait_for_login_to_be_clickable(self):
         self.wait_for_element_to_be_clickable(self._login_button)
 
-    def button_visible(self, button):
-        self.wait_for_element_to_be_clickable(button)
-        result = self.is_visible_element(button)
-        if button == "Home":
-            return self._home_button
-        elif button == "Login":
-            return self._login_button
+    def verify_home_button_visible(self):
+        result = self.is_visible_element(self._home_button)
         return result
+
+    def click_on_relog_button(self):
+        self.wait_for_element_to_be_clickable(self._relog_button)
+        self.click_on_element(self._relog_button)
