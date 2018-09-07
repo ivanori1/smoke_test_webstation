@@ -11,6 +11,7 @@ class HeaderPage(SeleniumDriver):
     set_as_start_page_link = "[onclick*='setAsStartPage']"
     _logo_image = "#logo-ws"
     _home_button = "#appIcon"
+    _logout_button = "[href='Logout.aspx']"
     # Headers
     news_header = ".main-pages-header.news-header"
     # Navigation Buttons
@@ -34,6 +35,9 @@ class HeaderPage(SeleniumDriver):
 
     def click_on_set_as_start_page(self):
         self.click_on_element(self.set_as_start_page_link)
+
+    def click_on_logout(self):
+        self.click_on_element(self._logout_button)
 
     def is_news_header_visible(self):
         result = self.is_visible_element(self.news_header)
