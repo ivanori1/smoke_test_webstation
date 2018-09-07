@@ -37,9 +37,28 @@ Feature: Login Failed
       | English   |  | This user account is disabled. Please contact the support team for further actions.                  |
       | Deutch    |  | Dieser Benutzerzugang ist deaktiviert. Bitte kontaktieren Sie das Support Team für weitere Aktionen. |
 
-  Scenario: Success login
+  Scenario Outline: Success login with account <username>
     Given Select language "English"
-    When Username "ivan.coric91" and password "ictrader123"
+    When Username "<username>" and password "<password>"
     And Accept EULA is "checked"
     And Click on Login button
-    Then Home button will appear
+    And "Home" button will appear
+    Then Logout
+
+    Examples:
+      | username     | password    |
+      | dpaafx.web92 | TTtest123   |
+      | teletrad.95  | 7zvTFDRY    |
+      | ivan.coric91 | ICtrader123 |
+
+  Scenario Outline: Expired session with autologin <status>
+    Given Open WebStation login page with timeout
+    When Username "ican.coric91" and password "ICtrader123"
+    And  Stay logged in option is "<status>".
+    And Click on Login button
+    And "<buttons> button will appear
+
+    Examples:
+      | status    | buttons |
+      | checked   | Home    |
+      | unchecked | Login   |
