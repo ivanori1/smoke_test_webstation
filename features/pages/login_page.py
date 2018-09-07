@@ -14,7 +14,7 @@ class LoginPage(SeleniumDriver):
     _language_box = "#langButton1"
     _language_box_en = "#langNavien"
     _language_box_de = "#langNavide"
-
+    _home_button = "#appIcon"
 
     def select_language(self, language):
         self.click_on_element(self._language_box)
@@ -73,3 +73,12 @@ class LoginPage(SeleniumDriver):
 
     def wait_for_login_to_be_clickable(self):
         self.wait_for_element_to_be_clickable(self._login_button)
+
+    def button_visible(self, button):
+        self.wait_for_element_to_be_clickable(button)
+        result = self.is_visible_element(button)
+        if button == "Home":
+            return self._home_button
+        elif button == "Login":
+            return self._login_button
+        return result
