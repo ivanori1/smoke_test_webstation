@@ -42,6 +42,14 @@ def step_impl(context, status):
     context.login_page.check_eula(status)
 
 
-@then('"{button}" button will appear')
+@then('A "{button}" button will appear')
 def step_impl(context, button):
-    assert context.login_page.button_visible(button)
+    if button == "Home":
+        assert context.login_page.verify_home_button_visible()
+    elif button == "Login":
+        assert context.login_page.verify_login_button_visible()
+
+
+@step('Click on Next button')
+def step_impl(context):
+    context.login_page.click_on_relog_button()
