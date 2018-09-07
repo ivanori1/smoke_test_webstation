@@ -53,3 +53,11 @@ def step_impl(context, button):
 @step('Click on Next button')
 def step_impl(context):
     context.login_page.click_on_relog_button()
+
+
+@then('A "{page}" page will appear')
+def step_impl(context, page):
+    if page == "Login":
+        assert context.login_page.verify_login_button_visible()
+    if page == "Home":
+        assert context.login_page.verify_home_button_visible()
