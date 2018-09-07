@@ -38,6 +38,7 @@ class HeaderPage(SeleniumDriver):
         self.click_on_element(self.set_as_start_page_link)
 
     def click_on_logout(self):
+        self.wait_for_element_to_be_clickable(self._logout_button)
         self.click_on_element(self._logout_button)
 
     def is_news_header_visible(self):
