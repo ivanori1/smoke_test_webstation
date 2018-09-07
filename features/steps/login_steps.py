@@ -6,6 +6,11 @@ def step_impl(context):
     context.selenium_driver.navigate("http://webstationtest3.ttweb.net/WebStation.aspx")
 
 
+@step('Open WebStation login page with timeout')
+def step_impl(context):
+    context.selenium_driver.navigate("http://webstationtest3.ttweb.net/WebStation.aspx?timeout=5000")
+
+
 @step('Select language "{language}"')
 def step_impl(context, language):
     context.login_page.select_language(language)
