@@ -31,7 +31,7 @@ def step_impl(context):
     assert context.header_page.is_news_header_visible()
 
 
-@step('Logout')
+@then('Logout')
 def step_impl(context):
     context.header_page.click_on_costomize_and_control()
     context.header_page.click_on_logout()
