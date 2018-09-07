@@ -61,3 +61,6 @@ def step_impl(context, page):
         assert context.login_page.verify_login_button_visible()
     if page == "Home":
         assert context.login_page.verify_home_button_visible()
+        context.execute_steps(u"""
+        then Logout
+        """)
