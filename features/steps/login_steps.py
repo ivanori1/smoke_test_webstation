@@ -42,6 +42,6 @@ def step_impl(context, status):
     context.login_page.check_eula(status)
 
 
-@then('Home button will appear')
-def step_impl(context):
-    assert context.header_page.home_button_appear()
+@then('"{button}" button will appear')
+def step_impl(context, button):
+    assert context.login_page.button_visible(button)
