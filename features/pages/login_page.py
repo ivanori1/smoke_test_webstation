@@ -71,3 +71,5 @@ class LoginPage(SeleniumDriver):
         result = self.is_autologin_checked() and self.is_eula_checked()
         return result
 
+    def wait_for_login_to_be_clickable(self):
+        self.wait_for_element_to_be_clickable(self._login_button)
